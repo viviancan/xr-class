@@ -9,4 +9,9 @@ public class MainIntro : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
+
+    public void QuitApp()
+    {
+        Application.Quit();
+    }
 }
