@@ -27,8 +27,8 @@ public class SimHandAnimator : MonoBehaviour
         }
     }
 
-    void SetAnimator(bool booleanValue)
+    void SetAnimator(bool boolVal)
     {
-        simHandAnimator.SetBool("isClosing", booleanValue);
+        simHandAnimator.SetBool("isClosing", boolVal);
     }
 }
