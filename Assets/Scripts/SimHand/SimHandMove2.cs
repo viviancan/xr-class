@@ -15,7 +15,7 @@ public class SimHandMove2 : MonoBehaviour
     {
         print("game starting");
         print(gameObject.name);
-        print("location: " + location.position);
+        //print("location: " + location.position);
     }
 
     // Update is called once per frame
