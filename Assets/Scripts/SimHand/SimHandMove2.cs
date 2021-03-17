@@ -6,7 +6,7 @@ public class SimHandMove2 : MonoBehaviour
 {
     public Transform location; //"location" game object
     public Vector3 position;
-    public float moveSpeed;
+    private float moveSpeed = 2;
     public float turnSpeed;
     private float sprintFactor = 8;
 

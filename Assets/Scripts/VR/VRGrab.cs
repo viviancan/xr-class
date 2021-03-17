@@ -1,14 +1,13 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimHandGrab : MonoBehaviour
+public class VRGrab : MonoBehaviour
 {
-
     public GameObject collidingObject;
 
     public GameObject heldObject;
-    
+
     private bool gripHeld;
 
     private VRInput controller;
@@ -22,9 +21,9 @@ public class SimHandGrab : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject == collidingObject)
+        if (other.gameObject == collidingObject)
         {
-            collidingObject = null; 
+            collidingObject = null;
         }
     }
 
@@ -33,20 +32,21 @@ public class SimHandGrab : MonoBehaviour
         controller = GetComponent<VRInput>();
     }
 
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (controller.gripValue > 0.5f && gripHeld == false)
         {
-            if(collidingObject && collidingObject.GetComponent<Rigidbody>())
+            gripHeld = true;
+            if (collidingObject && collidingObject.GetComponent<Rigidbody>())
             {
                 heldObject = collidingObject;
                 Grab();
             }
         }
-        if (Input.GetKeyUp(KeyCode.Mouse1))
+        if (controller.gripValue < 0.5f && gripHeld == true)
         {
+            gripHeld = false;
             if (heldObject)
             {
                 Release();
